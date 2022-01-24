@@ -1,0 +1,19 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo '\n⚙️ Checking code format and building before committing...'
+
+
+npm run check-lint ||(
+    echo '\n❌ Please fix the linter warnings'
+    false;
+)
+
+echo '✅ Nice, what a clean code!'
+echo '\n👷 Building the app...'
+
+npm run build || (
+    echo '\n❌ Failed to build'
+)
+
+echo '🎉 Committing...'
