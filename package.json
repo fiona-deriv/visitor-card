@@ -15,8 +15,10 @@
   "dependencies": {
     "g": "^2.0.1",
     "next": "12.0.8",
+    "prop-types": "^15.8.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "sass": "^1.49.0"
   },
   "devDependencies": {
     "eslint": "^8.7.0",

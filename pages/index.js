@@ -1,13 +1,11 @@
-import React from "react"
+import React from "react";
+import Layout from "@components/Layout";
 
-/**
- * 
- * @returns [ReactElement]
- */
 
 export default function Home() {
   return (
-    <div>
-    </div>
+    <Layout title='Hugs For Bugs: Visitors Card'>
+        <div className='container'> Hi there! </div>
+    </Layout>
   )
 }
