@@ -30,3 +30,52 @@ footer{
   justify-content: center;
   align-items: center;
 }
+
+label{
+ padding-bottom: 10px;
+}
+input{
+ 
+  border: none;
+  width: 300px;
+  margin-bottom: 10px;
+  background-color: #e56037;
+   border-radius: 4px;
+   resize: vertical;
+   height: 30px;
+}
+input:focus{
+  outline: none;
+  box-shadow: 0px 0px 5px #61C5FA;
+  border:2px solid #5AB0DB;
+  }
+  
+  input:hover{
+  border: 4px solid #999;
+  border-radius: 5px;
+  }
+  
+  input:focus:hover{
+  outline: none;
+  box-shadow: 0px 0px 5px #61C5FA;
+  border:1px solid #5AB0DB;
+  border-radius:0;
+  
+  } 
+h1{
+ 
+  font-size: 22px;
+  font-weight: 900;
+}
+// input[type=text], select, textarea {
+//   width: 100%;
+//   padding: 12px;
+
+//   border-radius: 4px;
+//   resize: vertical;
+//   }
+::placeholder{
+  color: #ffff;
+  font-weight: bolder;
+  
+}

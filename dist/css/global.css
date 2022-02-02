@@ -19,8 +19,60 @@ footer {
   text-align: center;
 }
 
+.layout {
+  height: 100vh;
+}
+
 .container {
   margin: auto;
-  max-width: 65rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+label {
+  padding-bottom: 10px;
+}
+
+input {
+  border: none;
+  width: 300px;
+  margin-bottom: 10px;
+  background-color: #e56037;
+  border-radius: 4px;
+  resize: vertical;
+  height: 30px;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+::-webkit-input-placeholder {
+  color: #ffff;
+  font-weight: bolder;
+}
+
+:-ms-input-placeholder {
+  color: #ffff;
+  font-weight: bolder;
+}
+
+::-ms-input-placeholder {
+  color: #ffff;
+  font-weight: bolder;
+}
+
+::placeholder {
+  color: #ffff;
+  font-weight: bolder;
 }
 /*# sourceMappingURL=global.css.map */
