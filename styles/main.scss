@@ -20,4 +20,126 @@
         height: 70%;
         border-radius: 0 30px 30px 0;
     }
+    
 }
+.container_box{
+    display: flex;
+    justify-content: flex-start;
+    height: 100vh;
+    width: 100%;
+    background-color: $dark-grey;
+    color: #fb921c;
+    // border-radius: 0 30px 30px 0;
+}
+  
+// }
+// .right_shape{
+//     position: relative;
+//     margin: auto 0;
+//     display: flex;
+//     justify-self: flex-start;
+//     background-color: #fb921c;
+//     height: 100%;
+//     width: 30px; 
+//     border-radius: 0 30px 30px 0;
+// }
+.left_shape {
+  
+
+    background-color: #fb921c;
+   
+    width: 5%; 
+    border-radius: 0 30px 30px 0;
+}
+.right_shape {
+  
+
+    background-color: #fb921c;
+   
+    width: 5%; 
+    border-radius: 0 30px 30px 0;
+}
+@keyframes animatedBackground {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 100% 100%;
+    }
+  }
+.content{
+    width: 90%;
+    // background-color:#131722;
+    background-image: url("../images/form-image.jpeg");
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-position: 0px 0px;
+    animation: animatedBackground 10s linear infinite alternate;
+}
+.form-page{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+  
+}
+.button-content{
+display: flex;
+justify-content: center;
+}
+.btn-container{
+    width: 170px;
+    height: 45px;
+    font-weight: bold;
+    border-radius: 20px;
+    color: #ffff;
+    background-color: #fb921c;
+    border: 1px solid #fb921c ;
+    transition: all 0.5s;
+}
+
+
+.btn-container span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  
+  .btn-container span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .btn-container:hover span {
+    padding-right: 25px;
+  }
+  
+  .btn-container:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+// .form-page{
+//     border: 1px solid #B4B7B4;
+//     float: right;
+//     width: 50%;
+//     padding: 10px;
+// }
+// input[type=text], select, textarea {
+//     width: 100%;
+//     padding: 12px;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     resize: vertical;
+//     }
+
+//     label {
+//         padding: 12px 12px 12px 0;
+//         display: inline-block;
+//         }
