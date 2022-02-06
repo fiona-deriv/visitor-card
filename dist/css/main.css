@@ -114,8 +114,8 @@ h1 {
           justify-content: flex-start;
   height: 100vh;
   width: 100%;
-  background-color: #131722;
-  color: #fb921c;
+  /* background-color: #131722;
+  color: #fb921c; */
 }
 
 .left_shape {

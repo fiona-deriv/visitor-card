@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
+import Card from './card';
 
-import { useState } from 'react'
-
-export default function MyForm() {
+const MyForm = () => {
     const [firstName, setName] = useState('')
     const [lastName, setlastName] = useState('')
     const [mobileName, setmobileName] = useState('')
@@ -30,13 +30,34 @@ export default function MyForm() {
         The name you entered is ${stateName}
         The name you entered is ${countryName}
         The name you entered is ${websiteName}
-        `)
+        `);
     }
+
     return (
         <div className="container_box">
-            <div className="left_shape"></div>
+            <div className='card_container'>
+                <Card 
+                    id="front_side"
+                    firstName={firstName} 
+                    lastName={lastName} 
+                    email={emailName}
+                    company={companyName}
+                    mobile={mobileName}
+                    fax={faxName}
+                    front={true}
+                />
+                <Card 
+                    id="back_side"
+                    country={countryName}
+                    city={cityName}
+                    state={stateName}
+                    street={streetName}
+                    zip={zipName}
+                    website={websiteName}
 
-            <div className="content">
+                />
+            </div>
+            <div className="content form_container">
                 <h1> Generating your visiting card</h1>
                 <form className="form-page" onSubmit={handleSubmit}>
                     <label>Your Name </label>
@@ -160,7 +181,8 @@ export default function MyForm() {
                     </div>
                 </form>
             </div>
-            <div className="right_shape"></div>
         </div>
     )
 }
+
+export default MyForm;
