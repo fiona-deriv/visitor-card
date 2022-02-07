@@ -1,6 +1,5 @@
-import React from 'react';
-import { useState } from 'react';
-import Card from './card';
+import React, { useEffect, useState } from 'react'
+import Card from './card'
 
 const MyForm = () => {
     const [firstName, setName] = useState('')
@@ -15,6 +14,7 @@ const MyForm = () => {
     const [stateName, setstateName] = useState('')
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
+    const [qrCode, setQrCode] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -30,23 +30,27 @@ const MyForm = () => {
         The name you entered is ${stateName}
         The name you entered is ${countryName}
         The name you entered is ${websiteName}
-        `);
+        `)
     }
+    useEffect(() => {
+        setQrCode(`http://api.qrserver.com/v1/create-qr-code/?data=${companyName}`)
+    }, [companyName])
 
     return (
         <div className="container_box">
-            <div className='card_container'>
-                <Card 
+            <div className="card_container">
+                <Card
                     id="front_side"
-                    firstName={firstName} 
-                    lastName={lastName} 
+                    firstName={firstName}
+                    lastName={lastName}
                     email={emailName}
                     company={companyName}
                     mobile={mobileName}
                     fax={faxName}
                     front={true}
+                    qrcode={<img src={qrCode} className="QR_code" />}
                 />
-                <Card 
+                <Card
                     id="back_side"
                     country={countryName}
                     city={cityName}
@@ -54,7 +58,6 @@ const MyForm = () => {
                     street={streetName}
                     zip={zipName}
                     website={websiteName}
-
                 />
             </div>
             <div className="content form_container">
@@ -112,7 +115,6 @@ const MyForm = () => {
                         name="company"
                         value={companyName}
                         onChange={(e) => setcompanyName(e.target.value)}
-                        placeholder="Company"
                     />
 
                     <label>Address </label>
@@ -185,4 +187,4 @@ const MyForm = () => {
     )
 }
 
-export default MyForm;
+export default MyForm
