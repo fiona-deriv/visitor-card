@@ -16,6 +16,7 @@ const Card = ({
     zip,
     front,
     id,
+    qrcode,
 }) => {
     return (
         <div className="card" id={id}>
@@ -24,31 +25,35 @@ const Card = ({
                 <div className_="info_datails">
                     {front && (
                         <div className="front_side">
-                            <p className='name'>
+                            <p className="name">
                                 Name: {lastName} {firstName}
                             </p>
-                            <p className='mobile'> Mobile: {mobile} </p>
+                            <p className="mobile"> Mobile: {mobile} </p>
                             <p> Fax: {fax}</p>
-                            <p className='mail'> Email: {email} </p>
+                            <p className="mail"> Email: {email} </p>
                         </div>
                     )}
                     {!front && (
                         <div className="back_side">
-                            <p className='address'>
-                                Adreess: {country &&`${country}, `}{state && `${state}, `}{city && `${city}, `}{street}
+                            <p className="address">
+                                Adreess: {country && `${country}, `}
+                                {state && `${state}, `}
+                                {city && `${city}, `}
+                                {street}
                             </p>
-                            <p className='zipcode'> ZipCode: {zip} </p>
-                            <p className='website'> Website: {website} </p>
+                            <p className="zipcode"> ZipCode: {zip} </p>
+                            <p className="website"> Website: {website} </p>
                         </div>
                     )}
                 </div>
             </div>
-            {front && <div className="QR_code_box">
-                <p className='company'> {company}</p>
-                <div className='QR_code'></div>
-            </div>}
+            {front && (
+                <div className="QR_code_box">
+                    <p className="company"> {company}</p>
+                    <div className="QR_code"> {qrcode}</div>
+                </div>
+            )}
             {!front && <div className="right_shape"></div>}
-
         </div>
     )
 }
@@ -67,7 +72,8 @@ Card.propTypes = {
     street: PropTypes.string,
     zip: PropTypes.string,
     front: PropTypes.bool,
-    id:PropTypes.string
+    id: PropTypes.string,
+    qrcode: PropTypes.any,
 }
 
 export default Card
