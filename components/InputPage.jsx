@@ -33,6 +33,7 @@ const MyForm = () => {
         The name you entered is ${websiteName}
         `)
     }
+
     const vCard = vCardsJS()
 
     vCard.firstName = { firstName }
@@ -61,7 +62,7 @@ const MyForm = () => {
                     fax={faxName}
                     front={true}
                     qrcode={<img src={qrCodeUrl} className="QR_code" />}
-                />
+                    
                 <Card
                     id="back_side"
                     country={countryName}
@@ -188,4 +189,5 @@ const MyForm = () => {
         </div>
     )
 }
+
 export default MyForm
