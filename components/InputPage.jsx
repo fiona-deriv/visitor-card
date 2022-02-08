@@ -36,9 +36,11 @@ const MyForm = () => {
 
     const vCard = vCardsJS()
 
-    vCard.firstName = firstName;
-    vCard.lastName = lastName;
-    vCard.workPhone = mobileName;
+    vCard.firstName = firstName
+    vCard.lastName = lastName
+    vCard.workPhone = mobileName
+    vCard.workEmail = emailName
+    vCard.organization = companyName
 
     // get as formatted string and encode it
     const vCardString = vCard.getFormattedString()
@@ -62,7 +64,7 @@ const MyForm = () => {
                     fax={faxName}
                     front={true}
                     qrcode={<img src={qrCodeUrl} className="QR_code" />}
-                />   
+                />
                 <Card
                     id="back_side"
                     country={countryName}
