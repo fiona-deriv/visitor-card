@@ -22,7 +22,8 @@
     "react-form-with-constraints": "^0.18.0",
     "react-router": "^6.2.1",
     "sass": "^1.49.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "vcards-js": "^2.10.0"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^2.0.2",
@@ -34,5 +35,10 @@
     "husky": "^6.0.0",
     "lint-staged": "^12.3.1",
     "prettier": "^2.5.1"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
   }
 }

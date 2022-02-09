@@ -1,8 +1,9 @@
-import React from 'react'
-import { useState } from 'react'
-import Card from './card'
 import { ColorPicker, useColor } from 'react-color-palette'
 import 'react-color-palette/lib/css/styles.css'
+import React, { useEffect, useState } from 'react'
+import Card from './card'
+import vCardsJS from 'vcards-js'
+
 const MyForm = () => {
     const [firstName, setName] = useState('')
     const [lastName, setlastName] = useState('')
@@ -17,6 +18,8 @@ const MyForm = () => {
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
     const [color, setColor] = useColor('hex', '#121212')
+    const [qrCodeUrl, setQrCode] = useState('')
+
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(`The name you entered is ${firstName}
@@ -34,6 +37,23 @@ const MyForm = () => {
         `)
     }
 
+    const vCard = vCardsJS()
+
+    vCard.firstName = firstName
+    vCard.lastName = lastName
+    vCard.workPhone = mobileName
+    vCard.workEmail = emailName
+    vCard.organization = companyName
+
+    // get as formatted string and encode it
+    const vCardString = vCard.getFormattedString()
+    const vCardEncodedString = encodeURIComponent(vCardString)
+
+    useEffect(() => {
+        setQrCode(
+            `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}&companyname=${companyName}`,
+        )
+    }, [companyName])
     return (
         <div className="container_box">
             <div className="card_container">
@@ -57,6 +77,7 @@ const MyForm = () => {
                     fax={faxName}
                     front={true}
                     color={color}
+                    qrcode={<img src={qrCodeUrl} className="QR_code" />}
                 />
                 <Card
                     id="back_side"
@@ -89,9 +110,7 @@ const MyForm = () => {
                         onChange={(e) => setlastName(e.target.value)}
                         placeholder=" Last name"
                     />
-
                     <label>Contact </label>
-
                     <input
                         type="number"
                         name="mobile"
@@ -107,7 +126,6 @@ const MyForm = () => {
                         onChange={(e) => setfaxName(e.target.value)}
                         placeholder="Fax"
                     />
-
                     <label>Email </label>
                     <input
                         type="email"
@@ -117,16 +135,13 @@ const MyForm = () => {
                         onChange={(e) => setemailName(e.target.value)}
                         placeholder="Your@email.com"
                     />
-
                     <label>Company </label>
                     <input
                         type="text"
                         name="company"
                         value={companyName}
                         onChange={(e) => setcompanyName(e.target.value)}
-                        placeholder="Company"
                     />
-
                     <label>Address </label>
                     <input
                         type="text"
@@ -138,7 +153,6 @@ const MyForm = () => {
                         maxLength={50}
                         placeholder="Address"
                     />
-
                     <label>City </label>
                     <input
                         type="text"
@@ -156,7 +170,6 @@ const MyForm = () => {
                         onChange={(e) => setzipName(e.target.value)}
                         placeholder="ZIP"
                     />
-
                     <label>State </label>
                     <input
                         type="text"
@@ -166,7 +179,6 @@ const MyForm = () => {
                         onChange={(e) => setstateName(e.target.value)}
                         placeholder="State"
                     />
-
                     <label>Country </label>
                     <input
                         type="text"
@@ -176,7 +188,6 @@ const MyForm = () => {
                         onChange={(e) => setcountryName(e.target.value)}
                         placeholder="Country"
                     />
-
                     <label>Website</label>
                     <input
                         type="text"
@@ -185,7 +196,6 @@ const MyForm = () => {
                         onChange={(e) => setwebsiteName(e.target.value)}
                         placeholder="www.your-website.com"
                     />
-
                     <div className="button-content">
                         <button className="btn-container" type="submit">
                             <span> Submit</span>

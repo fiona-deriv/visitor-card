@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'react-color-palette/lib/css/styles.css'
-import propTypes from 'prop-types'
 const Card = ({
     firstName,
     lastName,
@@ -18,6 +17,7 @@ const Card = ({
     front,
     id,
     color,
+    qrcode,
 }) => {
     return (
         <div className="card" style={{ backgroundColor: color.hex }} id={id}>
@@ -37,7 +37,7 @@ const Card = ({
                     {!front && (
                         <div className="back_side">
                             <p className="address">
-                                Address: {country && `${country}, `}
+                                Adreess: {country && `${country}, `}
                                 {state && `${state}, `}
                                 {city && `${city}, `}
                                 {street}
@@ -51,7 +51,7 @@ const Card = ({
             {front && (
                 <div className="QR_code_box">
                     <p className="company"> {company}</p>
-                    <div className="QR_code"></div>
+                    <div className="QR_code"> {qrcode}</div>
                 </div>
             )}
             {!front && <div className="right_shape"></div>}
@@ -75,6 +75,7 @@ Card.propTypes = {
     front: PropTypes.bool,
     id: PropTypes.string,
     color: propTypes.string,
+    qrcode: PropTypes.any,
 }
 
 export default Card
