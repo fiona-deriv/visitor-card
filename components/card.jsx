@@ -22,7 +22,7 @@ const Card = ({
         <div className="card" id={id}>
             <div className="left_shape"></div>
             <div className="info_box">
-                <div className_="info_datails">
+                <div className="info_datails">
                     {front && (
                         <div className="front_side">
                             <p className="name">
