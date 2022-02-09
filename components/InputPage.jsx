@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Card from './card'
 import vCardsJS from 'vcards-js'
 
@@ -15,7 +15,6 @@ const MyForm = () => {
     const [stateName, setstateName] = useState('')
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
-    const [qrCodeUrl, setQrCode] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -45,12 +44,11 @@ const MyForm = () => {
     // get as formatted string and encode it
     const vCardString = vCard.getFormattedString()
     const vCardEncodedString = encodeURIComponent(vCardString)
+    const qrCodeUrl = `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}`
 
-    useEffect(() => {
-        setQrCode(
-            `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}&companyname=${companyName}`,
-        )
-    }, [companyName])
+    const handleClick = () => {
+        setcompanyName(<img src={qrCodeUrl} width="150px" height="150px" />)
+    }
     return (
         <div className="container_box">
             <div className="card_container">
@@ -63,7 +61,6 @@ const MyForm = () => {
                     mobile={mobileName}
                     fax={faxName}
                     front={true}
-                    qrcode={<img src={qrCodeUrl} className="QR_code" />}
                 />
                 <Card
                     id="back_side"
@@ -182,7 +179,7 @@ const MyForm = () => {
                         placeholder="www.your-website.com"
                     />
                     <div className="button-content">
-                        <button className="btn-container" type="submit">
+                        <button className="btn-container" type="submit" onClick={handleClick}>
                             <span> Submit</span>
                         </button>
                     </div>
