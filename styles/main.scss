@@ -7,7 +7,7 @@
     height: 100vh;
     width: 100%;
     background-color: $light-grey2;
-    color: #fb921c;
+    color: $orange;
     // border-radius: 0 30px 30px 0;
     padding: 0 20px;
     .card_container {
@@ -47,7 +47,7 @@
       margin: auto 0;
       display: flex;
       justify-self: flex-start;
-      background-color: #fb921c;
+      background-color: $orange;
       width: 30px;
       height: 70%;
       border-radius: 0 30px 30px 0;
@@ -58,7 +58,7 @@
       margin: auto 0;
       display: flex;
       justify-self: flex-start;
-      background-color: #fb921c;
+      background-color: $orange;
       width: 30px;
       height: 70%;
       border-radius: 30px 0 0 30px;
@@ -94,6 +94,9 @@
           top: 20px;
       }
       .QR_code {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 150px;
           height: 150px;
           border: 2px solid $dark-grey;
@@ -136,8 +139,8 @@
     font-weight: bold;
     border-radius: 20px;
     color: #ffff;
-    background-color: #fb921c;
-    border: 1px solid #fb921c;
+    background-color: $orange;
+    border: 1px solid $orange;
     transition: all 0.5s;
 }
 

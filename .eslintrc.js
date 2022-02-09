@@ -14,6 +14,7 @@ module.exports = {
     plugins: ['react'],
     rules: {
         'require-jsdoc': 0,
+        'no-unused-vars': 1,
     },
     settings: {
         react: {

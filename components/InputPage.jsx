@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Card from './card'
 import vCardsJS from 'vcards-js'
 
+const vCard = vCardsJS()
+
 const MyForm = () => {
     const [firstName, setName] = useState('')
     const [lastName, setlastName] = useState('')
@@ -19,41 +21,20 @@ const MyForm = () => {
     const [websiteName, setwebsiteName] = useState('')
     const [color, setColor] = useColor('hex', '#121212')
     const [qrCodeUrl, setQrCode] = useState('')
+    const [qrImage, setQRImage] = useState(null)
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(`The name you entered is ${firstName}
-        The name you entered is ${lastName}
-        The name you entered is ${mobileName}
-        The name you entered is ${faxName}
-        The name you entered is ${emailName}
-        The name you entered is ${companyName}
-        The name you entered is ${streetName}
-        The name you entered is ${cityName}
-        The name you entered is ${zipName}
-        The name you entered is ${stateName}
-        The name you entered is ${countryName}
-        The name you entered is ${websiteName}
-        `)
+        vCard.firstName = firstName
+        vCard.lastName = lastName
+        vCard.workPhone = mobileName
+        vCard.workEmail = emailName
+        vCard.organization = companyName
+        const vCardString = vCard.getFormattedString()
+        const vCardEncodedString = encodeURIComponent(vCardString)
+        const qrCodeUrl = `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}`
+        setQRImage(<img src={qrCodeUrl} width="140px" height="140px" />)
     }
-
-    const vCard = vCardsJS()
-
-    vCard.firstName = firstName
-    vCard.lastName = lastName
-    vCard.workPhone = mobileName
-    vCard.workEmail = emailName
-    vCard.organization = companyName
-
-    // get as formatted string and encode it
-    const vCardString = vCard.getFormattedString()
-    const vCardEncodedString = encodeURIComponent(vCardString)
-
-    useEffect(() => {
-        setQrCode(
-            `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}&companyname=${companyName}`,
-        )
-    }, [companyName])
     return (
         <div className="container_box">
             <div className="card_container">
@@ -78,6 +59,7 @@ const MyForm = () => {
                     front={true}
                     color={color}
                     qrcode={<img src={qrCodeUrl} className="QR_code" />}
+                    qrCode={qrImage}
                 />
                 <Card
                     id="back_side"

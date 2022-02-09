@@ -17,13 +17,13 @@ const Card = ({
     front,
     id,
     color,
-    qrcode,
+    qrCode,
 }) => {
     return (
         <div className="card" style={{ backgroundColor: color.hex }} id={id}>
             <div className="left_shape"></div>
             <div className="info_box">
-                <div className_="info_datails">
+                <div className="info_datails">
                     {front && (
                         <div className="front_side">
                             <p className="name">
@@ -51,7 +51,7 @@ const Card = ({
             {front && (
                 <div className="QR_code_box">
                     <p className="company"> {company}</p>
-                    <div className="QR_code"> {qrcode}</div>
+                    <div className="QR_code"> {qrCode}</div>
                 </div>
             )}
             {!front && <div className="right_shape"></div>}
@@ -74,8 +74,8 @@ Card.propTypes = {
     zip: PropTypes.string,
     front: PropTypes.bool,
     id: PropTypes.string,
-    color: propTypes.string,
-    qrcode: PropTypes.any,
+    color: PropTypes.string,
+    qrCode: PropTypes.any,
 }
 
 export default Card
