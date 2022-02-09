@@ -1,7 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
-import Card from './card';
-
+import React from 'react'
+import { useState } from 'react'
+import Card from './card'
+import { ColorPicker, useColor } from 'react-color-palette'
+import 'react-color-palette/lib/css/styles.css'
 const MyForm = () => {
     const [firstName, setName] = useState('')
     const [lastName, setlastName] = useState('')
@@ -15,7 +16,7 @@ const MyForm = () => {
     const [stateName, setstateName] = useState('')
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
-
+    const [color, setColor] = useColor('hex', '#121212')
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(`The name you entered is ${firstName}
@@ -30,23 +31,34 @@ const MyForm = () => {
         The name you entered is ${stateName}
         The name you entered is ${countryName}
         The name you entered is ${websiteName}
-        `);
+        `)
     }
 
     return (
         <div className="container_box">
-            <div className='card_container'>
-                <Card 
+            <div className="card_container">
+                <ColorPicker
+                    width={456}
+                    height={228}
+                    color={color}
+                    onChange={setColor}
+                    hideHSV
+                    hideRGB
+                    hideHEX
+                    dark
+                />
+                <Card
                     id="front_side"
-                    firstName={firstName} 
-                    lastName={lastName} 
+                    firstName={firstName}
+                    lastName={lastName}
                     email={emailName}
                     company={companyName}
                     mobile={mobileName}
                     fax={faxName}
                     front={true}
+                    color={color}
                 />
-                <Card 
+                <Card
                     id="back_side"
                     country={countryName}
                     city={cityName}
@@ -54,7 +66,7 @@ const MyForm = () => {
                     street={streetName}
                     zip={zipName}
                     website={websiteName}
-
+                    color={color}
                 />
             </div>
             <div className="content form_container">
@@ -185,4 +197,4 @@ const MyForm = () => {
     )
 }
 
-export default MyForm;
+export default MyForm
