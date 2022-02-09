@@ -94,6 +94,9 @@
           top: 20px;
       }
       .QR_code {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 150px;
           height: 150px;
           border: 2px solid $dark-grey;
