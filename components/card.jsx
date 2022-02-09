@@ -16,7 +16,7 @@ const Card = ({
     zip,
     front,
     id,
-    qrcode,
+    qrCode,
 }) => {
     return (
         <div className="card" id={id}>
@@ -50,7 +50,7 @@ const Card = ({
             {front && (
                 <div className="QR_code_box">
                     <p className="company"> {company}</p>
-                    <div className="QR_code"> {qrcode}</div>
+                    <div className="QR_code"> {qrCode}</div>
                 </div>
             )}
             {!front && <div className="right_shape"></div>}
@@ -73,7 +73,7 @@ Card.propTypes = {
     zip: PropTypes.string,
     front: PropTypes.bool,
     id: PropTypes.string,
-    qrcode: PropTypes.any,
+    qrCode: PropTypes.any,
 }
 
 export default Card

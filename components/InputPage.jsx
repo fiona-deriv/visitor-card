@@ -15,6 +15,7 @@ const MyForm = () => {
     const [stateName, setstateName] = useState('')
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
+    const [qrImage, setQRImage] = useState(null);
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -47,7 +48,7 @@ const MyForm = () => {
     const qrCodeUrl = `https://chart.googleapis.com/chart?chs=300x300&choe=UTF-8&chld=M%7C0&cht=qr&chl=${vCardEncodedString}`
 
     const handleClick = () => {
-        setcompanyName(<img src={qrCodeUrl} width="150px" height="150px" />)
+        setQRImage(<img src={qrCodeUrl} width="140px" height="140px" />)
     }
     return (
         <div className="container_box">
@@ -61,6 +62,7 @@ const MyForm = () => {
                     mobile={mobileName}
                     fax={faxName}
                     front={true}
+                    qrCode={qrImage}
                 />
                 <Card
                     id="back_side"
