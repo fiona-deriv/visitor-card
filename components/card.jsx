@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+import 'react-color-palette/lib/css/styles.css'
 const Card = ({
     firstName,
     lastName,
@@ -16,10 +16,11 @@ const Card = ({
     zip,
     front,
     id,
+    color,
     qrCode,
 }) => {
     return (
-        <div className="card" id={id}>
+        <div className="card" style={{ backgroundColor: color.hex }} id={id}>
             <div className="left_shape"></div>
             <div className="info_box">
                 <div className="info_datails">
@@ -73,6 +74,7 @@ Card.propTypes = {
     zip: PropTypes.string,
     front: PropTypes.bool,
     id: PropTypes.string,
+    color: PropTypes.string,
     qrCode: PropTypes.any,
 }
 

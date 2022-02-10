@@ -6,7 +6,6 @@ export default function Home() {
     return (
         <Layout title="Hugs For Bugs: Visitors Card">
             <InputPage />
-
         </Layout>
     )
 }

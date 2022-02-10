@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Card from './card'
 import vCardsJS from 'vcards-js'
+import { ColorPicker, useColor } from 'react-color-palette'
+import 'react-color-palette/lib/css/styles.css'
 
-const vCard = vCardsJS();
+const vCard = vCardsJS()
 
 const MyForm = () => {
     const [firstName, setName] = useState('')
@@ -17,7 +19,9 @@ const MyForm = () => {
     const [stateName, setstateName] = useState('')
     const [countryName, setcountryName] = useState('')
     const [websiteName, setwebsiteName] = useState('')
-    const [qrImage, setQRImage] = useState(null);
+    const [color, setColor] = useColor('hex', '#121212')
+    const [qrCodeUrl, setQrCode] = useState('')
+    const [qrImage, setQRImage] = useState(null)
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -34,6 +38,17 @@ const MyForm = () => {
     return (
         <div className="container_box">
             <div className="card_container">
+                <h1> Choose your favourite color for the card</h1>
+                <ColorPicker
+                    width={456}
+                    height={100}
+                    color={color}
+                    onChange={setColor}
+                    hideHSV
+                    hideRGB
+                    hideHEX
+                    dark
+                />
                 <Card
                     id="front_side"
                     firstName={firstName}
@@ -43,6 +58,8 @@ const MyForm = () => {
                     mobile={mobileName}
                     fax={faxName}
                     front={true}
+                    color={color}
+                    qrcode={<img src={qrCodeUrl} className="QR_code" />}
                     qrCode={qrImage}
                 />
                 <Card
@@ -53,9 +70,10 @@ const MyForm = () => {
                     street={streetName}
                     zip={zipName}
                     website={websiteName}
+                    color={color}
                 />
             </div>
-            <div className="content form_container">
+            <div className="content">
                 <h1> Generating your visiting card</h1>
                 <form className="form-page" onSubmit={handleSubmit}>
                     <label>Your Name </label>

@@ -20,7 +20,7 @@ footer {
 }
 
 .layout {
-  height: 100vh;
+  margin: auto;
 }
 
 .container {
@@ -51,9 +51,30 @@ input {
   height: 30px;
 }
 
+input:focus {
+  outline: none;
+  -webkit-box-shadow: 0px 0px 5px #61C5FA;
+          box-shadow: 0px 0px 5px #61C5FA;
+  border: 2px solid #5AB0DB;
+}
+
+input:hover {
+  border: 4px solid #999;
+  border-radius: 5px;
+}
+
+input:focus:hover {
+  outline: none;
+  -webkit-box-shadow: 0px 0px 5px #61C5FA;
+          box-shadow: 0px 0px 5px #61C5FA;
+  border: 1px solid #5AB0DB;
+  border-radius: 0;
+}
+
 h1 {
   font-size: 22px;
   font-weight: 900;
+  color: #fff;
 }
 
 ::-webkit-input-placeholder {
@@ -76,7 +97,103 @@ h1 {
   font-weight: bolder;
 }
 
+@media only screen and (max-width: 800px) {
+  .card_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100% !important;
+  }
+  .card_container .rcp-dark {
+    width: 100% !important;
+  }
+  .container_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .container_box .content {
+    width: 100% !important;
+  }
+}
+
+.container_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  background-image: url("../images/form-image.jpeg");
+  color: #fb921c;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-position: 0px 0px;
+  -webkit-animation: animatedBackground 10s linear infinite alternate;
+          animation: animatedBackground 10s linear infinite alternate;
+  padding: 0 20px;
+}
+
+.container_box .card_container {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10px;
+}
+
+.container_box .content {
+  width: 50%;
+  background-image: url("../images/form-image.jpeg");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-position: 0px 0px;
+  -webkit-animation: animatedBackground 10s linear infinite alternate;
+          animation: animatedBackground 10s linear infinite alternate;
+}
+
+.container_box .info_datails {
+  margin: 10px;
+}
+
+.container_box .info_datails p {
+  padding: 8px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.container_box .info_datails .company {
+  text-align: center;
+}
+
 .card {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,14 +203,19 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 600px;
+  max-width: 600px;
+  max-height: 350px;
+  width: 100%;
   height: 350px;
   background-color: #131722;
   border-radius: 30px;
+  margin: 20px 0;
+  overflow: none;
 }
 
 .card .left_shape {
-  position: relative;
+  position: absolute;
+  left: 0;
   margin: auto 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -105,47 +227,97 @@ h1 {
   border-radius: 0 30px 30px 0;
 }
 
-.container_box {
+.card .right_shape {
+  position: absolute;
+  right: 0;
+  margin: auto 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  height: 100vh;
-  width: 100%;
-  /* background-color: #131722;
-  color: #fb921c; */
-}
-
-.left_shape {
+  justify-self: flex-start;
   background-color: #fb921c;
-  width: 5%;
-  border-radius: 0 30px 30px 0;
+  width: 30px;
+  height: 70%;
+  border-radius: 30px 0 0 30px;
 }
 
-.right_shape {
-  background-color: #fb921c;
-  width: 5%;
-  border-radius: 0 30px 30px 0;
-}
-
-.content {
-  width: 90%;
-  background-color: #131722;
+.card .info_box {
+  width: 60%;
+  padding: 10px 10px 10px 50px;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 100%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+}
+
+.card .info_box .info_datails {
+  padding: 10px;
+}
+
+.card .QR_code_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-bottom: 20px;
+  font-size: 18px;
+  width: 40%;
+  height: 100%;
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 0 30px 30px 0;
+}
+
+.card .QR_code_box .company {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 20px;
+}
+
+.card .QR_code_box .QR_code {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #131722;
+  border-radius: 8px;
+}
+
+@-webkit-keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
 }
 
 .form-page {
@@ -176,5 +348,34 @@ h1 {
   color: #ffff;
   background-color: #fb921c;
   border: 1px solid #fb921c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-container span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn-container span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.btn-container:hover span {
+  padding-right: 25px;
+}
+
+.btn-container:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 /*# sourceMappingURL=main.css.map */
