@@ -1,8 +1,8 @@
-import { ColorPicker, useColor } from 'react-color-palette'
-import 'react-color-palette/lib/css/styles.css'
 import React, { useEffect, useState } from 'react'
 import Card from './card'
 import vCardsJS from 'vcards-js'
+import { ColorPicker, useColor } from 'react-color-palette'
+import 'react-color-palette/lib/css/styles.css'
 
 const vCard = vCardsJS()
 
@@ -38,9 +38,10 @@ const MyForm = () => {
     return (
         <div className="container_box">
             <div className="card_container">
+                <h1> Choose your favourite color for the card</h1>
                 <ColorPicker
                     width={456}
-                    height={228}
+                    height={100}
                     color={color}
                     onChange={setColor}
                     hideHSV
@@ -72,7 +73,7 @@ const MyForm = () => {
                     color={color}
                 />
             </div>
-            <div className="content form_container">
+            <div className="content">
                 <h1> Generating your visiting card</h1>
                 <form className="form-page" onSubmit={handleSubmit}>
                     <label>Your Name </label>
