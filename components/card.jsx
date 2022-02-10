@@ -74,7 +74,7 @@ Card.propTypes = {
     zip: PropTypes.string,
     front: PropTypes.bool,
     id: PropTypes.string,
-    color: PropTypes.string,
+    color: PropTypes.object,
     qrCode: PropTypes.any,
 }
 
