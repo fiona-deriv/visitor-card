@@ -1,8 +1,8 @@
 'use strict'
 
-var QRCode = require('..')
-var React = require('react')
-var ReactDOM = require('react-dom')
+const QRCode = require('..')
+const React = require('react')
+const ReactDOM = require('react-dom')
 
 // TODO: live update demo
 class Demo extends React.Component {
@@ -25,7 +25,7 @@ class Demo extends React.Component {
     }
 
     render() {
-        var imageSettingsCode = this.state.includeImage
+        const imageSettingsCode = this.state.includeImage
             ? `
   imageSettings={{
     src: "${this.state.imageSrc}",
@@ -36,7 +36,7 @@ class Demo extends React.Component {
     excavate: ${this.state.imageExcavate},
   }}`
             : ''
-        var code = `<QRCode
+        const code = `<QRCode
   value={"${this.state.value}"}
   size={${this.state.size}}
   bgColor={"${this.state.bgColor}"}
@@ -233,7 +233,7 @@ class Demo extends React.Component {
                     </fieldset>
                     <div>
                         <label>
-                            Excavate ("dig" foreground to nearest whole module):
+                            Excavate (`dig` foreground to nearest whole module):
                             <br />
                             <input
                                 type="checkbox"
